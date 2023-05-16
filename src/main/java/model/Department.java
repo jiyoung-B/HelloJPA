@@ -1,7 +1,6 @@
 package model;
 
 import lombok.Data;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @Data
 @Table(name="departments")
 @Entity
-public class Departments {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="DEPARTMENT_ID")
@@ -20,12 +19,6 @@ public class Departments {
     @Column(name="MANAGER_ID")
     private Integer mgrid;
     @Column(name="LOCATION_ID")
-    private Integer locid;
-
-
-
-
-
-
+    private Long locid;
 
 }

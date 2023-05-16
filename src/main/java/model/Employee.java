@@ -10,7 +10,7 @@ import java.sql.Date;
 @Data
 @Table(name="employees")
 @Entity
-public class Employees {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EMPLOYEE_ID")
@@ -35,15 +35,12 @@ public class Employees {
     @Column(name = "MANAGER_ID")
     private Integer mgrid;
     @Column(name = "DEPARTMENT_ID")
-    @JoinColumn(name="departments_id")
     private Long deptid;
 
-//    private Date regdate;
-//
-//    // persist 호출전에 regdate 컬럼에 현재 날짜/시간 대입
-//    @PrePersist
-//    protected void onCreate(){
-//        regdate = new Date();
-//    }
+    @ManyToOne  // 테이블 연관 관계 = 다 : 1
+    @JoinColumn(name="department_id") // 테이블명_@Id지정컬럼
+    // department 테이블의 id 컬럼과 조인
+    private Department department;
+
 
 }
